@@ -2,11 +2,17 @@ package refactoring;
 
 public class Article {
 
-    public Bike bike;
-    public int purchaseAmount;
+    private Bike bike;
+    private int purchaseAmount;
 
-    public Article(Bike b, int pa) {
-        bike = b;
-        purchaseAmount = pa;
+    public Article(Bike bike, int purchaseAmount) {
+        this.bike = bike;
+        this.purchaseAmount = purchaseAmount;
+    }
+    public Bike getBike(){
+        return bike;
+    }
+    public int getPurchaseAmount(){
+        return purchaseAmount;
     }
 }

@@ -5,25 +5,26 @@ import java.util.Date;
 
 public class Bill {
 
-    public String customerName;
-    public String nickname;
-    public Date birthday;
-    public String email;
-    public String street;
-    public String streetNumber;
-    public int postalCode;
-    public String city;
-    public ArrayList<Article> articles;
+    private String customerName;
+    private String nickname;
+    private Date birthday;
+    private String email;
+    private String street;
+    private String streetNumber;
+    private int postalCode;
+    private String city;
+    private ArrayList<Article> articles;
 
-    public Bill(String cn, String n, String s, String sn, int pc, Date b, String e, String c) {
-        customerName = cn;
-        nickname = n;
-        street = s;
-        streetNumber = sn;
-        postalCode = pc;
-        birthday = b;
-        email = e;
-        city = c;
+    public Bill(String customerName, String nickname, String street, String streetNumber, int postalCode,
+                Date birthday, String email, String city) {
+        this.customerName = customerName;
+        this.nickname = nickname;
+        this.street = street;
+        this.streetNumber = streetNumber;
+        this.postalCode = postalCode;
+        this.birthday = birthday;
+        this.email = email;
+        this.city = city;
         articles = new ArrayList<>();
     }
 
@@ -42,18 +43,18 @@ public class Bill {
         result += "refactoring.Article: \n";
         for (Article article : articles) {
             double price = 0;
-            if (article.bike instanceof Brompton) {
-                if (article.purchaseAmount > 1) {
-                    price += (article.purchaseAmount - 1) * article.bike.price / 2;
+            if (article.getBike() instanceof Brompton) {
+                if (article.getPurchaseAmount() > 1) {
+                    price += (article.getPurchaseAmount() - 1) * article.getBike().getPrice() / 2;
                 }
-                price += article.bike.price * article.purchaseAmount;
-            } else if (article.bike instanceof EBike) {
-                price += article.bike.price * article.purchaseAmount;
-            } else if (article.bike instanceof Mountainbike) {
-                if (article.purchaseAmount > 2) {
-                    price += article.purchaseAmount * article.bike.price * 9 / 10;
+                price += article.getBike().getPrice() * article.getPurchaseAmount();
+            } else if (article.getBike() instanceof EBike) {
+                price += article.getBike().getPrice() * article.getPurchaseAmount();
+            } else if (article.getBike() instanceof Mountainbike) {
+                if (article.getPurchaseAmount() > 2) {
+                    price += article.getPurchaseAmount() * article.getBike().getPrice() * 9 / 10;
                 } else {
-                    price += article.bike.price * article.purchaseAmount;
+                    price += article.getBike().getPrice() * article.getPurchaseAmount();
                 }
             }
             if (price > 1000f || price == 1000.0) {
@@ -61,18 +62,45 @@ public class Bill {
             }
 
             result +=
-                    "\t"
-                            + article.bike.productName
-                            + "\tx\t"
-                            + article.purchaseAmount
-                            + "\t=\t"
-                            + String.valueOf(price)
-                            + "\n";
+                "\t"
+                    + article.getBike().getProductName()
+                    + "\tx\t"
+                    + article.getPurchaseAmount()
+                    + "\t=\t"
+                    + String.valueOf(price)
+                    + "\n";
             total += price;
         }
 
         result += "\nTotal price:\t" + String.valueOf(total) + "\n";
 
         return result;
+    }
+    public String getCustomerName(){
+        return customerName;
+    }
+    public String getNickname(){
+        return nickname;
+    }
+    public Date getBirthday(){
+        return birthday;
+    }
+    public String getEmail(){
+        return email;
+    }
+    public String getStreet(){
+        return street;
+    }
+    public String getStreetNumber(){
+        return streetNumber;
+    }
+    public int getPostalCode(){
+        return postalCode;
+    }
+    public String getCity(){
+        return city;
+    }
+    public ArrayList<Article> getArticles(){
+        return articles;
     }
 }
