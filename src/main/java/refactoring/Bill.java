@@ -3,6 +3,9 @@ package refactoring;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * This class represents a customers bill when buying a bike.
+ */
 public class Bill {
 
     private String customerName;
@@ -15,6 +18,18 @@ public class Bill {
     private String city;
     private ArrayList<Article> articles;
 
+    /**
+     * Constructor of the Bill class.
+     *
+     * @param customerName
+     * @param nickname
+     * @param street
+     * @param streetNumber
+     * @param postalCode
+     * @param birthday
+     * @param email
+     * @param city
+     */
     public Bill(String customerName, String nickname, String street, String streetNumber, int postalCode,
                 Date birthday, String email, String city) {
         this.customerName = customerName;
@@ -27,11 +42,21 @@ public class Bill {
         this.city = city;
         articles = new ArrayList<>();
     }
-
-    public boolean addArticle(Article a) {
-        return articles.add(a);
+    /**
+     * Adds an article to the List of articles.
+     *
+     * @param article
+     *
+     * @return true if the article was successfully added
+     */
+    public boolean addArticle(Article article) {
+        return articles.add(article);
     }
-
+    /**
+     * Return the details of this bill.
+     *
+     * @return a message containing the details of the bill
+     */
     public String getDetails() {
         double total = 0;
 
@@ -59,31 +84,75 @@ public class Bill {
 
         return result;
     }
-
+    /**
+     * Return the customer name.
+     *
+     * @return customerName
+     */
     public String getCustomerName(){
         return customerName;
     }
+    /**
+     * Return the nickname.
+     *
+     * @return nickname
+     */
     public String getNickname(){
         return nickname;
     }
+    /**
+     * Return the birthday.
+     *
+     * @return birthday
+     */
     public Date getBirthday(){
         return birthday;
     }
+    /**
+     * Return the email.
+     *
+     * @return email
+     */
     public String getEmail(){
         return email;
     }
+    /**
+     * Return the street.
+     *
+     * @return street
+     */
     public String getStreet(){
         return street;
     }
+    /**
+     * Return the street number.
+     *
+     * @return streetNumber
+     */
     public String getStreetNumber(){
         return streetNumber;
     }
+    /**
+     * Return the postal code.
+     *
+     * @return postalCode
+     */
     public int getPostalCode(){
         return postalCode;
     }
+    /**
+     * Return the city.
+     *
+     * @return city
+     */
     public String getCity(){
         return city;
     }
+    /**
+     * Return the articles.
+     *
+     * @return articles
+     */
     public ArrayList<Article> getArticles(){
         return articles;
     }

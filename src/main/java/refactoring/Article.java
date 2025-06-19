@@ -1,20 +1,47 @@
 package refactoring;
 
+/**
+ * This class represents a purchasable article of a bike.
+ */
 public class Article {
 
     private Bike bike;
     private int purchaseAmount;
 
+    /**
+     * Constructor of the article class.
+     *
+     * @param bike
+     * @param purchaseAmount
+     */
     public Article(Bike bike, int purchaseAmount) {
         this.bike = bike;
         this.purchaseAmount = purchaseAmount;
     }
+
+    /**
+     * Return the bike.
+     *
+     * @return bike
+     */
     public Bike getBike(){
         return bike;
     }
+
+    /**
+     * Return the purchased amount.
+     *
+     * @return purchaseAmount
+     */
     public int getPurchaseAmount(){
         return purchaseAmount;
     }
+
+    /**
+     * Calculate the price for this type of bike.
+     *
+     * @return price of the bike
+     */
     public double getPrice() {
         double price = 0;
         if (getBike() instanceof Brompton) {
