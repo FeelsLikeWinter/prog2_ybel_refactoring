@@ -1,26 +1,33 @@
 package refactoring;
 
+/**
+ * This class represents an ebike.
+ */
 public class EBike extends Bike {
 
-    public int maxSpeed;
-    public int rearGearsCount;
-    public int frontGearsCount;
+    private int maxSpeed;
 
-    public EBike(String pn, double p, int ms, int rgc, int fgc, int bc) {
-        productName = pn;
-        price = p;
-        maxSpeed = ms;
-        rearGearsCount = rgc;
-        frontGearsCount = fgc;
-        batteryCapacity = bc;
+    /**
+     * The constructor of the ebike class.
+     *
+     * @param productName
+     * @param price
+     * @param maxSpeed
+     * @param rearGearsCount
+     * @param frontGearsCount
+     * @param batteryCapacity
+     */
+    public EBike(String productName, double price, int maxSpeed, int rearGearsCount, int frontGearsCount, int batteryCapacity) {
+        super(productName, price, batteryCapacity, rearGearsCount, frontGearsCount);
+        this.maxSpeed = maxSpeed;
     }
 
+    /**
+     * Return the max speed.
+     *
+     * @return maxSpeed
+     */
     public int getMaxSpeed() {
         return maxSpeed;
-    }
-
-    @Override
-    public int getGearsCount() {
-        return rearGearsCount * frontGearsCount;
     }
 }

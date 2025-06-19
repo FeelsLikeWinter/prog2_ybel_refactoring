@@ -1,30 +1,40 @@
 package refactoring;
 
+/**
+ * This class represents a brompton bike.
+ */
 public class Brompton extends Bike {
 
-    public int maxSpeed;
-    public int rearGearsCount;
-    public int frontGearsCount;
+    private int maxSpeed;
 
-    public Brompton(String pn, double p, int ms, int rgc, int fgc) {
-        productName = pn;
-        price = p;
-        maxSpeed = ms;
-        rearGearsCount = rgc;
-        frontGearsCount = fgc;
+    /**
+     * The constructor of the brompton class.
+     *
+     * @param productName
+     * @param price
+     * @param maxSpeed
+     * @param rearGearsCount
+     * @param frontGearsCount
+     */
+    public Brompton(String productName, double price, int maxSpeed, int rearGearsCount, int frontGearsCount) {
+        super(productName, price, 0, rearGearsCount, frontGearsCount);
+        this.maxSpeed = maxSpeed;
     }
-
+    /**
+     * Return the max speed.
+     *
+     * @return maxSpeed
+     */
     public int getMaxSpeed() {
         return maxSpeed;
     }
-
+    /**
+     * Return that there is no battery capacity.
+     *
+     * @return null
+     */
     @Override
     public Integer getBatteryCapacity() {
         return null;
-    }
-
-    @Override
-    public int getGearsCount() {
-        return rearGearsCount * frontGearsCount;
     }
 }
